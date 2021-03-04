@@ -23,6 +23,16 @@ public class ex5 {
 		}
 	}
 	
+	public static int[][] addMatrix(int[][] arr1, int[][] arr2) {
+		int[][] arr = new int[arr1.length][arr1[0].length];
+		for(int i = 0; i < arr1.length; i++) {
+			for(int j = 0; j < arr1[i].length; j++) {
+				arr[i][j] = arr1[i][j] + arr2[i][j];
+			}
+		}
+		return arr;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
@@ -31,8 +41,7 @@ public class ex5 {
 		int y = input.nextInt();
 		int arr1[][]= setMatrix(x,y);
 		int arr2[][] = setMatrix(x,y);
-		printMatrix(arr1);
-		printMatrix(arr2);
+		printMatrix(addMatrix(arr1, arr2));
 	}
 
 }
