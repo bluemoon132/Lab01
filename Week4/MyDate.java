@@ -224,4 +224,9 @@ public class MyDate {
 		}
 		return strDay;
 	}
+	public String getStringDate() {
+		String dateStr;
+		dateStr = String.valueOf(getDay())+"/"+String.valueOf(getMonth()) +"/"+ String.valueOf(getYear());
+		return dateStr;
+	}
 }
