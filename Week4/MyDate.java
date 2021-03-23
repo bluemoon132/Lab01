@@ -1,5 +1,5 @@
+package aism;
 import java.util.Calendar;
-import java.util.Scanner;
 
 public class MyDate {
 	private int day;
@@ -67,9 +67,8 @@ public class MyDate {
 	public void print() {
 		System.out.print("The current date is: ");
 		Calendar calendar = Calendar.getInstance();
-		System.out.println( getMonthString(calendar.get(Calendar.MONTH)+1) + " " + 
-							calendar.get(Calendar.DATE) + getDayStringStt(calendar.get(Calendar.DATE)) + " " + 
-							calendar.get(Calendar.YEAR));
+		System.out.println( getMonthString(calendar.get(Calendar.MONTH)+1) + " " + calendar.get(Calendar.DATE) + 
+							getDayStringStt(calendar.get(Calendar.DATE)) + " " + calendar.get(Calendar.YEAR));
 	}
 
 	public int getMonthNumber(String monthName) {
@@ -226,7 +225,53 @@ public class MyDate {
 	}
 	public String getStringDate() {
 		String dateStr;
-		dateStr = String.valueOf(getDay())+"/"+String.valueOf(getMonth()) +"/"+ String.valueOf(getYear());
+		dateStr = String.valueOf(getYear())+"/"+String.valueOf(getMonth()) +"/"+ String.valueOf(getDay());
 		return dateStr;
+	}
+	
+	public void printWithFormat(String strFormat) {
+		switch(strFormat) {
+			case "yyyy-MM-dd":
+				String date = String.valueOf(year) + "-";
+				if(month<10) date = date + String.valueOf(0) + String.valueOf(month) + "-";
+				else date = date + String.valueOf(month) + "-";
+				if(day<10) date = date + String.valueOf(0) + String.valueOf(day);
+				else date = date + String.valueOf(day);
+				System.out.println("The date with format " + strFormat + "is: " + date);
+				break;
+			case "d/M/yyyy":
+				String date2 = String.valueOf(day) + "-";
+				date2 = date2 + String.valueOf(month) + "-";
+				date2 = date2 + String.valueOf(year);
+				System.out.println("The date with format " + strFormat + " is: " + date2);
+				break;
+			case "dd-MMM-yyyy":
+				String date3 = "";
+				if(day<10) date3 = date3 + String.valueOf(0) + String.valueOf(day) + "-";
+				else date3 = date3 + String.valueOf(day) + "-";
+				date3 = date3 + getMonthString(month)+"-";
+				date3 = date3 + String.valueOf(year);
+				System.out.println("The date with format " + strFormat + " is: " + date3);
+				break;
+			case "MMM d yyyy":
+				String date4 = "";
+				date4 = date4 + getMonthString(month) + " ";
+				date4 = date4 + String.valueOf(day) + " ";
+				date4 = date4 + String.valueOf(year);
+				System.out.println("The date with format " + strFormat + " is: " + date4);
+				break;
+			case "mm-dd-yyyy":
+				String date5 = "";
+				if(month<10) date5 = date5 + String.valueOf(0) + String.valueOf(month) + "-";
+				else date5 = date5 + String.valueOf(month) + "-";
+				if(day<10) date5 = date5 + String.valueOf(0) + String.valueOf(day) + "-";
+				else date5 = date5 + String.valueOf(day) + "-";
+				date5 = date5 + String.valueOf(year);
+				System.out.println("The date with format " + strFormat + " is: " + date5);
+				break;
+			default: 
+				System.out.println("Invalid format!");
+		}
+		
 	}
 }

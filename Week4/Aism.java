@@ -1,4 +1,4 @@
-
+package aism;
 public class Aism {
 
 	public static void main(String[] args) {

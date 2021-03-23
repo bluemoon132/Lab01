@@ -1,12 +1,10 @@
-
-import java.text.DateFormat;
+package aism;
 import java.text.SimpleDateFormat;
-import java.time.OffsetDateTime;
 import java.util.Date;
 
 
 public class Order {
-	private static int qtyOrdered = 0;
+	private int qtyOrdered = 0;
 	public static final int MAX_NUMBER_ORDERED = 10;
 	private String dateOrdered;
 	public DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBER_ORDERED];
