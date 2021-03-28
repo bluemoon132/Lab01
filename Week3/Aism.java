@@ -1,4 +1,3 @@
-
 public class Aism {
 
 	public static void main(String[] args) {
