@@ -1,4 +1,4 @@
-package aism;
+package hust.soict.hedspi.aims.utils;
 import java.util.Calendar;
 
 public class MyDate {
@@ -64,12 +64,19 @@ public class MyDate {
 		this.year = getYearNumber(year);
 	}
 
-	public void print() {
-		System.out.print("The current date is: ");
-		Calendar calendar = Calendar.getInstance();
-		System.out.println( getMonthString(calendar.get(Calendar.MONTH)+1) + " " + calendar.get(Calendar.DATE) + 
-							getDayStringStt(calendar.get(Calendar.DATE)) + " " + calendar.get(Calendar.YEAR));
+	public String toStringDate() {
+		String date = "";
+		if(day != 0 && month != 0 & year != 0) {
+			date = ( getMonthString(month) + " " + day + getDayStringStt(day) + " " + year);
+		}
+		else {
+			Calendar calendar = Calendar.getInstance();
+			date = ( getMonthString(calendar.get(Calendar.MONTH)+1) + " " + calendar.get(Calendar.DATE) + 
+								getDayStringStt(calendar.get(Calendar.DATE)) + " " + calendar.get(Calendar.YEAR));
+		}
+		return date;
 	}
+
 
 	public int getMonthNumber(String monthName) {
 		int monthNum=0;

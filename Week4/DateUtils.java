@@ -1,4 +1,4 @@
-package aism;
+package hust.soict.hedspi.aims.utils;
 public class DateUtils {
 	public static void dateCompare(MyDate d1, MyDate d2){ 
 		String date1 = d1.getStringDate();

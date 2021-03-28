@@ -1,4 +1,4 @@
-package aism;
+package hust.soict.hedspi.aims.disc;
 public class DigitalVideoDisc {
 	private String title;
 	private String category;
@@ -44,5 +44,19 @@ public class DigitalVideoDisc {
 		this.category = category;
 		this.length = length;
 		this.cost = cost;
+	}
+	public String toStringDVD() {
+		String dvd = ". DVD - "+ title + " - "+ category+" - "+ length +": "+ cost + "$";
+		return dvd;
+	}
+	public boolean search(String title) {
+		String[] tokens = title.split(" ");
+		String searchTitle = getTitle();
+		for(String token: tokens) {
+			if(!searchTitle.contains(token)) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
