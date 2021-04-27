@@ -1,30 +1,30 @@
 package hust.soict.hedspi.aism.media.dvd;
 
-import hust.soict.hedspi.aism.media.Media;
+import hust.soict.hedspi.aism.media.Playable;
+import hust.soict.hedspi.aism.media.disc.Disc;
 
-public class DigitalVideoDisc extends Media {
-	private int length;
-	public int getLength() {
-		return length;
+public class DigitalVideoDisc extends Disc implements Playable{	
+	public DigitalVideoDisc(String director, int length) {
+        super(director, length);
+    }
+
+    public DigitalVideoDisc(int id, String title, String category, float cost, String director) {
+        super(id, title, category, cost, director);
+    }
+
+    public DigitalVideoDisc(int id, String title, String category, String director, int length, float cost) {
+        super(id, title, category, cost, director, length);
+    }  
+	
+	@Override
+	public void play() {
+		System.out.println("Playing DVD: " + this.getTitle());
+		System.out.println("DVD length: " + this.getLength());
 	}
-	public void setLength(int length) {
-		this.length = length;
-	}
-	public DigitalVideoDisc() {
-		super();
-	}
-	public DigitalVideoDisc(String title) {
-		super(title);
-	}
-	public DigitalVideoDisc(String title, String category, float cost) {
-		super(title, category, cost);
-	}
-	public DigitalVideoDisc(String title, String category, int length, float cost) {
-		super(title, category, cost);
-		this.length = length;
-	}
+	
+	@Override
 	public String displayInfor() {
-		String dvd = title+" - "+category+" - "+length+" : "+cost+"$";
-		return dvd;
-	}
+        return "DVD.ID: " + getId() + "- Title: " + getTitle() + ", Category: " + getCategory() 
+        	+ ", Director: " + getDirector() + ", Length: " + getLength() + ", Price: "+ getCost();
+    }
 }

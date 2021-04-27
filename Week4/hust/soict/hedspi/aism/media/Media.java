@@ -3,6 +3,7 @@ package hust.soict.hedspi.aism.media;
 public abstract class Media {
 	protected String title;
 	protected String category;
+	protected int id;
 	protected float cost;
 	public String getTitle() {
 		return title;
@@ -10,35 +11,13 @@ public abstract class Media {
 	public String getCategory() {
 		return category;
 	}
+	public int getId() {
+		return id;
+	}
 	public float getCost() {
 		return cost;
 	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
-	public void setCost(float cost) {
-		this.cost = cost;
-	}
-	public Media() {
-		super();
-	}
-	public Media(String title) {
-		super();
-		this.title = title;
-	}
-	public Media(String title, String category, float cost) {
-		super();
-		this.title = title;
-		this.category = category;
-		this.cost = cost;
-	}
-	public String displayInfor() {
-		String media = title + " - "+ category +" : "+ cost + "$";
-		return media;
-	}
+	
 	public boolean search(String title) {
 		String[] tokens = title.split(" ");
 		String searchTitle = getTitle();
@@ -49,4 +28,6 @@ public abstract class Media {
 		}
 		return true;
 	}
+	
+	public abstract String displayInfor();
 }
