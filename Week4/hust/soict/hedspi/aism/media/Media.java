@@ -1,6 +1,6 @@
 package hust.soict.hedspi.aism.media;
 
-public abstract class Media {
+public abstract class Media implements Comparable{
 	protected String title;
 	protected String category;
 	protected int id;
@@ -30,4 +30,18 @@ public abstract class Media {
 	}
 	
 	public abstract String displayInfor();
+	
+	@Override
+	public int compareTo(Object o) {
+		return this.getTitle().compareTo(((Media) o).getTitle());
+	}
+	@Override
+	public boolean equals (Object o) {
+		if(o instanceof Media) {
+			if(((Media) o).id == this.id) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

@@ -20,6 +20,17 @@ public class Track implements Playable{
     }
 	
 	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Track) {
+			Track tr = (Track) obj;
+			if(this.title == tr.title && this.length == tr.length) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	@Override
 	public void play() {
 		if (this.getLength()<=0) {
 			System.err.println("ERROR: Track length is 0");

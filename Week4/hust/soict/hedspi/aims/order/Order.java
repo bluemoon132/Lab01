@@ -155,8 +155,8 @@ public class Order {
             ArrayList<Track> tracks = new ArrayList<>();
             sc.nextLine();
             for(int i = 0; i < number ; i++){
-                System.out.print("Enter title of trask: "); String titletrask = sc.nextLine();
-                System.out.print("Enter length of trask: "); int lengthtrack = sc.nextInt();
+                System.out.print("Enter title of track: "); String titletrask = sc.nextLine();
+                System.out.print("Enter length of track: "); int lengthtrack = sc.nextInt();
                 sc.nextLine();
                 Track track = new Track(titletrask,lengthtrack);
                 tracks.add(track);

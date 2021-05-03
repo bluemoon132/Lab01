@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import hust.soict.hedspi.aism.media.Media;
 
-public class Book extends Media{
+public class Book extends Media {
 	private ArrayList<String> authors = new ArrayList<String>();
 	
 	public ArrayList<String> getAuthors() {
@@ -37,20 +37,21 @@ public class Book extends Media{
         super.category = category;
     }
 
-    
-    public Book(String title, String category, float cost) {
-        super.title = title;
-        super.category = category;
-        super.cost = cost;
-    }
-
     public Book(int id,String title,String category,float cost){
         super.id = id;
         super.title = title;
         super.category = category;
         super.cost = cost;
     }
-
+    
+    public Book(int id, String title, String category, float cost, String authors) {
+        super.id = id;
+        super.title = title;
+        super.category = category;
+        super.cost = cost;
+        this.authors.add(authors);
+    }
+    
     public Book(int id, String title, String category, float cost, ArrayList<String> authors) {
         super.id = id;
         super.title = title;
@@ -58,7 +59,7 @@ public class Book extends Media{
         super.cost = cost;
         this.authors = authors;
     }
-	
+    
 	@Override
 	public String displayInfor() {
 		return "Book. ID: " + getId() +  "- Title: " + getTitle() + ", Category: " 

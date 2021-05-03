@@ -7,7 +7,7 @@ public class DigitalVideoDisc extends Disc implements Playable{
 	public DigitalVideoDisc(String director, int length) {
         super(director, length);
     }
-
+	
     public DigitalVideoDisc(int id, String title, String category, float cost, String director) {
         super(id, title, category, cost, director);
     }
