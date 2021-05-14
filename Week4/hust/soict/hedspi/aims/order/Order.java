@@ -1,12 +1,16 @@
 package hust.soict.hedspi.aims.order;
 
+import java.security.spec.RSAOtherPrimeInfo;
 import java.util.*;
+
+import hust.soict.hedspi.aims.PlayerException;
 import hust.soict.hedspi.aism.media.Media;
 import hust.soict.hedspi.aism.media.book.Book;
 import hust.soict.hedspi.aism.media.cd.CompactDisc;
 import hust.soict.hedspi.aism.media.disc.Track;
 import hust.soict.hedspi.aism.media.dvd.DigitalVideoDisc;
 
+import javax.naming.LimitExceededException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -31,7 +35,11 @@ public class Order {
     }
 	
 	public Order(){
-        nbOrdered++;
+	    try {
+            nbOrdered++;
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 	
 	public void verifyOrderedItem() {
@@ -128,7 +136,7 @@ public class Order {
         return count;
     }
 
-    public void newItem(ArrayList <Media> listOfItems,int choice){
+    public void newItem(ArrayList <Media> listOfItems,int choice) throws PlayerException {
         boolean check = true;
         int id;
         do{

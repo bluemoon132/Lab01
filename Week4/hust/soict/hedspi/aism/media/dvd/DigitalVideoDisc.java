@@ -1,5 +1,6 @@
 package hust.soict.hedspi.aism.media.dvd;
 
+import hust.soict.hedspi.aims.PlayerException;
 import hust.soict.hedspi.aism.media.Playable;
 import hust.soict.hedspi.aism.media.disc.Disc;
 
@@ -17,9 +18,13 @@ public class DigitalVideoDisc extends Disc implements Playable{
     }  
 	
 	@Override
-	public void play() {
-		System.out.println("Playing DVD: " + this.getTitle());
-		System.out.println("DVD length: " + this.getLength());
+	public void play() throws PlayerException {
+	    if(this.getLength() > 0){
+            System.out.println("Playing DVD: " + this.getTitle());
+            System.out.println("DVD length: " + this.getLength());
+        } else {
+	        throw new PlayerException("ERROR: DVD length is non-positive!");
+        }
 	}
 	
 	@Override

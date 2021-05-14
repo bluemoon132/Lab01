@@ -3,13 +3,14 @@ package hust.soict.hedspi.aism.media;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import hust.soict.hedspi.aims.PlayerException;
 import hust.soict.hedspi.aism.media.cd.CompactDisc;
 import hust.soict.hedspi.aism.media.disc.Track;
 
 public class CDFactory implements AbstractItemFactory {
 	private static int idCount = 0;
 	@Override
-    public CompactDisc createMediaItemFromConsole() {
+    public CompactDisc createMediaItemFromConsole() throws PlayerException {
         Scanner sc = new Scanner(System.in);
         sc.nextLine();
         System.out.print("Enter title: "); String title = sc.nextLine();

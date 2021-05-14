@@ -37,10 +37,14 @@ public abstract class Media implements Comparable{
 	}
 	@Override
 	public boolean equals (Object o) {
-		if(o instanceof Media) {
-			if(((Media) o).id == this.id) {
-				return true;
+		try {
+			if(o instanceof Media) {
+				if(((Media) o).id == this.id) {
+					return true;
+				}
 			}
+		} catch (Exception e){
+			System.out.println(e.getMessage());
 		}
 		return false;
 	}
